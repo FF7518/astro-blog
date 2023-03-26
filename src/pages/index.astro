@@ -29,7 +29,28 @@ const last_posts = posts.slice(0, 3);
     </div>
 
     <div>
-      <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+      <div class="text-3xl w-full font-bold mb-2">最新笔记</div>
+    </div>
+
+    {
+      last_posts.map((post) => (
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + post.slug}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0"></div>
+      ))
+    }
+
+    
+
+
+    <div>
+      <div class="text-3xl w-full font-bold mb-5 mt-10">最近项目 {"</>"}</div>
     </div>
 
     <HorizontalCard
@@ -55,23 +76,6 @@ const last_posts = posts.slice(0, 3);
     badge="FOSS"
   />
 
-
-    <div>
-      <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
-    </div>
-
-    {
-      last_posts.map((post) => (
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + post.slug}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0"></div>
-      ))
-    }
+    
 
 </BaseLayout>
